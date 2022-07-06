@@ -10,4 +10,9 @@ class Carrera extends Model
     use HasFactory;
 
     protected $table = "carreras";
+
+    public function asignaturas()
+    {
+        return $this->hasMany(Asignatura::class);
+    }
 }

@@ -10,4 +10,9 @@ class Area extends Model
     use HasFactory;
 
     protected $table = "areas";
+
+    public function asignaturas()
+    {
+        return $this->hasMany(Asignaturas::class);
+    }
 }
