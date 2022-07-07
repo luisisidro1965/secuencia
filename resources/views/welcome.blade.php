@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>Laravel</title>
-
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
 
@@ -18,6 +17,8 @@
     <div class="container">
         <br>
        <h1>Estoy en Welcome</h1>
+       <input type="text" name="" id="">
+       <input type="button" value="Enviar">
     </div>
 </body>
 
