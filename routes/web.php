@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AsignaturaController;
+use App\Http\Controllers\LugarController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
@@ -28,3 +29,5 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::get('contactos', function () {
     return view('contactos');
 });
+
+Route::resource('lugar', LugarController::class);
