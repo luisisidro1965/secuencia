@@ -16,10 +16,10 @@
 <body class="antialiased">
     <div class="container">
         <br>
-       <h1>Estoy en Welcome</h1>
-       <input type="text" name="" id="">
-       <input type="button" value="Enviar">
+        <h1>Estoy en Welcome</h1>
+        <input type="text" name="" id="">
+        <input type="button" value="Enviar">
     </div>
-</body>
 
-</html>
+
+</body>
