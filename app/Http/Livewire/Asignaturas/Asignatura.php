@@ -6,7 +6,6 @@ use Livewire\Component;
 
 class Asignatura extends Component
 {
-    public $gestionar = "Clientes";
     public $datTable;
 
     public function mount()

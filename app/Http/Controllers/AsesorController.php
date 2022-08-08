@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Lugar;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
+use App\Models\Area;
 
-class LugarController extends Controller
+class AsesorController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,9 +14,8 @@ class LugarController extends Controller
      */
     public function index()
     {
-        $lugares = Lugar::paginate(10);
-        //$lugares = DB::select('select * from lugares')->paginate(10);
-        return view('lugar.index', ['lugares' => $lugares]);
+        $areas = Area::all();
+        return $areas;
     }
 
     /**
@@ -27,7 +25,7 @@ class LugarController extends Controller
      */
     public function create()
     {
-        return view('lugar.create');
+        //
     }
 
     /**
@@ -38,11 +36,7 @@ class LugarController extends Controller
      */
     public function store(Request $request)
     {
-        DB::insert('insert into lugares(descripcion, responsable, capacidad, edificio) values (?,?,?,?)', [
-            $request->descripcion, $request->responsable, $request->capacidad, $request->edificio
-        ]);
-        //return $request->except(['_token']);
-        return redirect(route('lugar.index'));
+        //
     }
 
     /**
@@ -51,9 +45,9 @@ class LugarController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Lugar $ok) //$id
+    public function show($id)
     {
-        dd($ok);
+        //
     }
 
     /**
@@ -64,7 +58,7 @@ class LugarController extends Controller
      */
     public function edit($id)
     {
-        dd($id);
+        //
     }
 
     /**
@@ -88,11 +82,5 @@ class LugarController extends Controller
     public function destroy($id)
     {
         //
-    }
-
-    public function getLugar()
-    {
-        $lugares = Lugar::all();
-        return response()->json($lugares);
     }
 }

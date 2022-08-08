@@ -1,25 +1,11 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+@extends('layouts.app')
 
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+@section('content')
+<div class="container">
+        <h1>welcome</h1>
+    <x-lista/>
+    <x-alert/>
+    <x-menu/>
+</div>
 
-    <title>Laravel</title>
-    <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
-
-    <!-- Styles -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css">
-
-    @livewireStyles
-</head>
-
-<body class="antialiased">
-
-    <div class="container">
-        @livewire('asignaturas.asignatura')
-    </div>
-
-    @livewireScripts
-</body>
+@endsection
