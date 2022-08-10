@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Area;
+use Illuminate\Support\Facades\DB;
 
 class AreaController extends Controller
 {
@@ -36,7 +37,10 @@ class AreaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        DB::insert('insert into areas(nombre, descripcion) values (?,?)', [
+            $request->nombre, $request->descripcion
+        ]);
+        return redirect('areas');
     }
 
     /**
@@ -47,7 +51,8 @@ class AreaController extends Controller
      */
     public function show($id)
     {
-        //
+        $area = Area::find($id);
+        return view('areas.show', ['area' => $area]);
     }
 
     /**
@@ -58,7 +63,8 @@ class AreaController extends Controller
      */
     public function edit($id)
     {
-        //
+        $area = Area::find($id);
+        return view('areas.show', ['area' => $area]);
     }
 
     /**
