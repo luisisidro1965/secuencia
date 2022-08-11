@@ -15,7 +15,7 @@ class AreaController extends Controller
      */
     public function index()
     {
-        $areas = Area::all();
+        $areas = Area::paginate(6);
         return view('areas.index', compact('areas'));
     }
 
@@ -37,9 +37,13 @@ class AreaController extends Controller
      */
     public function store(Request $request)
     {
-        DB::insert('insert into areas(nombre, descripcion) values (?,?)', [
-            $request->nombre, $request->descripcion
-        ]);
+        $areas = new Area();
+
+        $areas->nombre = $request->nombre;
+        $areas->descripcion =$request->descripcion;
+
+        $areas->save();
+
         return redirect('areas');
     }
 
@@ -51,8 +55,10 @@ class AreaController extends Controller
      */
     public function show($id)
     {
+        /*
         $area = Area::find($id);
         return view('areas.show', ['area' => $area]);
+        */
     }
 
     /**
@@ -64,7 +70,7 @@ class AreaController extends Controller
     public function edit($id)
     {
         $area = Area::find($id);
-        return view('areas.show', ['area' => $area]);
+        return view('areas.edit', ['area' => $area]);
     }
 
     /**
@@ -76,7 +82,13 @@ class AreaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $area = Area::find($id);
+
+        $area->nombre = $request->nombre;
+        $area->descripcion =$request->descripcion;
+
+        $area->save();
+        return redirect('areas');
     }
 
     /**
@@ -87,6 +99,7 @@ class AreaController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Area::destroy($id);
+        return redirect("areas");
     }
 }
