@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
+use Faker;
 
 class AreaSeeder extends Seeder
 {
@@ -15,6 +16,8 @@ class AreaSeeder extends Seeder
      */
     public function run()
     {
+        $faker = Faker\Factory::create();
+
         $areas = [
             'Ciencias básicas aplicadas',
             'Formación tecnológica',
@@ -29,6 +32,8 @@ class AreaSeeder extends Seeder
         foreach ($areas as $value) {
             DB::table('areas')->insert([
                 'nombre' => $value,
+                'descripcion' => $faker->text(),
+                'fotografia' => $faker->imageUrl(null, 640, 480)
             ]);
         }
     }

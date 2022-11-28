@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Area;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 
 class AreaController extends Controller
 {
@@ -37,10 +38,32 @@ class AreaController extends Controller
      */
     public function store(Request $request)
     {
+        
+        return $request->file('fotografia');
+        $request->validate([
+            'fotografia' => 'required|image|max:2048'
+        ]);
+
         $areas = new Area();
 
         $areas->nombre = $request->nombre;
-        $areas->descripcion =$request->descripcion;
+        $areas->descripcion = $request->descripcion;
+
+        /**
+         * Ruta de almacén temporal
+         * $areas->fotografia =$request->file('fotografia');
+         * Almacena en storage/app/public
+         * $areas->fotografia =$request->file('fotografia')->store('');
+         * Almacena en storage/app/images  Ahi crea la carpeta images
+         * $areas->fotografia =$request->file('fotografia')->store('images');
+         * Almacena en storage/app/public/images  En la carpeta public crea images
+         * $areas->fotografia =$request->file('fotografia')->store('public/images');
+         * Crear acceso directo a la carpeta public/images con php artisan storage/link
+         */
+
+        $fotografiaPublic = $request->file('fotografia')->store('public/images');
+
+        $areas->fotografia = Storage::url($fotografiaPublic);
 
         $areas->save();
 
@@ -85,7 +108,7 @@ class AreaController extends Controller
         $area = Area::find($id);
 
         $area->nombre = $request->nombre;
-        $area->descripcion =$request->descripcion;
+        $area->descripcion = $request->descripcion;
 
         $area->save();
         return redirect('areas');

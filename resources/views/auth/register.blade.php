@@ -94,21 +94,22 @@
                                 <div class="col-md-6">
                                     <select class="form-select" name="rol">
                                         <option selected>Selecione el rol</option>
-                                        <option value="1">Administrador</option>
-                                        <option value="2">Docente</option>
-                                        <option value="2">Asistente</option>
-                                        </option>
+                                        <option value="0">Administrador</option>
+                                        <option value="1">Docente</option>
+                                        <option value="2">Director</option>
+                                        <option value="3">Asistente</option>
                                     </select>
                                 </div>
                             </div>
 
                             <div class="row mb-3">
-                                <label for="sexo" class="col-md-4 col-form-label text-md-end">{{ __('Sexo') }}</label>
+                                <label for="sexo"
+                                    class="col-md-4 col-form-label text-md-end">{{ __('Sexo') }}</label>
                                 <div class="col-md-6">
                                     <select class="form-select" name="sexo">
                                         <option selected>Selecione el rol</option>
-                                        <option value="1">Masculino</option>
-                                        <option value="2">Femenino</option>
+                                        <option value="Masculino">Masculino</option>
+                                        <option value="Femenino">Femenino</option>
                                     </select>
                                 </div>
                             </div>

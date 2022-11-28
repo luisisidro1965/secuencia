@@ -1,0 +1,19 @@
+{
+    "datos": [
+        {
+            "id": 7,
+            "matricula": 367643,
+            "nombre": "José Alfredo"
+        },
+        {
+            "id": 73,
+            "matricula": 3266,
+            "nombre": "Luis Alfredo"
+        },
+        {
+            "id": 7182,
+            "matricula": 123986,
+            "nombre": "Adriana"
+        }
+    ]
+}

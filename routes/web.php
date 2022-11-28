@@ -29,6 +29,9 @@ Route::view('login3', 'login');
 Route::resource('areas', AreaController::class);
 
 Route::view('mapas', 'mapas.carmen');
+Route::view('ren', 'ren');
+
+Route::view('bucles', 'bucles');
 
 Route::view('perros', 'apiperros');
 
@@ -37,7 +40,7 @@ Route::get('usuarios', function () {
     //return $response->body();
     //return $response->successful();
     return $response->json();
-    $lista = $response->jso();
+    $lista = $response->json();
     return $lista;
     return view('apis.usuarios', ['lista' => $lista]);
 });
