@@ -16,19 +16,16 @@ return new class extends Migration
         Schema::create('asignaturas', function (Blueprint $table) {
             $table->id();
             $table->string('nombre', 100);
+            $table->enum('cuatrimestre', [0, 1, 2, 3, 4, 5, 7, 8, 9, 10]);
+            $table->unsignedTinyInteger('ht');
+            $table->unsignedTinyInteger('hp');
+            $table->unsignedTinyInteger('htotales');
+            $table->unsignedTinyInteger('htsemana');
             $table->string('objetivo');
-            $table->text('competencia');
-            $table->foreignId('carrera_id')->constrained('carreras')
+            $table->foreignId('progedu_id')
+                ->onDelete('set null')
                 ->onUpdate('cascade')
-                ->onDelete('cascade');
-            $table->unsignedTinyInteger('cuatrimestre');
-            $table->unsignedTinyInteger('horas_t');
-            $table->unsignedTinyInteger('horas_p');
-            $table->unsignedTinyInteger('unidades');
-
-            $table->foreignId('area_id')->constrained('areas')  //area_conocimiento
-                ->nullable()
-                ->onDelte('set null'); //area del conocimiento
+                ->constrained('progedu');
             $table->timestamps();
         });
     }

@@ -11,13 +11,4 @@ class Asignatura extends Model
 
     protected $table = "asignaturas";
 
-    public function area()
-    {
-        return $this->belongsTo(Area::class);
-    }
-
-    public function carrera()
-    {
-        return $this->belongsTo(Asignatura::class);
-    }
 }

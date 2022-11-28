@@ -5,9 +5,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Lugar extends Model
+class Progedu extends Model
 {
     use HasFactory;
-    protected $table = 'lugares';
-
+    protected $table ="progedu";
 }

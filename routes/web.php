@@ -44,3 +44,5 @@ Route::get('usuarios', function () {
     return $lista;
     return view('apis.usuarios', ['lista' => $lista]);
 });
+
+Route::resource('asignatura', AsignaturaController::class);
