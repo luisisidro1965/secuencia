@@ -108,7 +108,7 @@
             </button>
         </div>
     </nav>
-    <x-menu/>
+    <x-mnututor/>
     <x-tarjeta/>
 </body>
 

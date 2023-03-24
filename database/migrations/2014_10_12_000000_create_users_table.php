@@ -20,14 +20,14 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->enum('rol', ['admin', 'docente', 'director', 'asistente']);
+            $table->enum('rol', ['tutorado', 'tutor', 'docente', 'coordinador', 'asistente', 'director']);
             $table->string('foto')->nullable();
+            $table->string('progedu');
             $table->enum('sexo', ['masculino', 'femenino']);
             $table->rememberToken();
             $table->timestamps();
         });
     }
-
     /**
      * Reverse the migrations.
      *

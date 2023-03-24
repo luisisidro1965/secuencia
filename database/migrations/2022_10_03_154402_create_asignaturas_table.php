@@ -23,9 +23,10 @@ return new class extends Migration
             $table->unsignedTinyInteger('htsemana');
             $table->string('objetivo');
             $table->foreignId('progedu_id')
-                ->onDelete('set null')
-                ->onUpdate('cascade')
-                ->constrained('progedu');
+                ->constrained('progedu')
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
+
             $table->timestamps();
         });
     }

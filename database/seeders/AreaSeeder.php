@@ -36,5 +36,7 @@ class AreaSeeder extends Seeder
                 'fotografia' => $faker->imageUrl(null, 640, 480)
             ]);
         }
+
+        
     }
 }

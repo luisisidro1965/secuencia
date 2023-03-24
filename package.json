@@ -7,7 +7,7 @@
     "devDependencies": {
         "@popperjs/core": "^2.10.2",
         "axios": "^0.25",
-        "bootstrap": "^5.1.3",
+        "bootstrap": "^5.2.3",
         "fine-uploader": "5.11.5",
         "laravel-vite-plugin": "^0.6.1",
         "lodash": "^4.17.19",
@@ -19,6 +19,6 @@
     },
     "dependencies": {
         "autoprefixer": "10.4.5",
-        "sweetalert2": "^11.6.11"
+        "chart.js": "^4.2.1"
     }
 }

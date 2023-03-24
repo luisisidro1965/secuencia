@@ -21,27 +21,26 @@ class UnidadSeeder extends Seeder
         $asig = Asignatura::all('id');
 
         for ($i = 0; $i <= 50; $i++) {
-
-
             $unidad = new Unidad();
-
+            $unidad->asignatura_id = $asig->random()->id;
             $unidad->nombre = $faker->name();
+            $unidad->objetivo =$faker->text();
+            $unidad->tarea_integradora =$faker->text();
 
             $httmp = $faker->randomElement(['10', '30', '45']);
             $hptmp = $faker->randomElement(['45', '60', '75']);
 
-            $unidad->ht = $httmp;
-            $unidad->hp = $hptmp;
+            $unidad->horas_t = $httmp;
+            $unidad->horas_p = $hptmp;
 
-            $unidad->asignatura_id = $asig->random()->id;
+            $unidad->fecha_entrega =$faker->dateTimeBetween('-10 week');
 
-            $unidad->objetivo =$faker->text();
+           
+            $unidad->material_didactico =$faker->text();
 
-            $unidad->resultado_aprendizaje =$faker->text();
+            $unidad->instrumento_evaluación =$faker->text();
 
-            $unidad->secuencia_aprendizaje =$faker->text();
-
-            $unidad->espacios_formativos = $faker->text();
+            $unidad->herramientas_didacticas = $faker->text();
 
             $unidad->save();
         }

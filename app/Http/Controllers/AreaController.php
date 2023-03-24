@@ -2,10 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\ContactanosMailable;
 use Illuminate\Http\Request;
 use App\Models\Area;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
+use RealRashid\SweetAlert\Facades\Alert;
+use Illuminate\Mail\Mailable;
+use Illuminate\Support\Facades\Mail;
 
 class AreaController extends Controller
 {
@@ -38,8 +42,8 @@ class AreaController extends Controller
      */
     public function store(Request $request)
     {
-        
-        return $request->file('fotografia');
+
+        //return $request->file('fotografia');
         $request->validate([
             'fotografia' => 'required|image|max:2048'
         ]);
@@ -66,8 +70,10 @@ class AreaController extends Controller
         $areas->fotografia = Storage::url($fotografiaPublic);
 
         $areas->save();
+        //print_r($request->user());
+        Mail::to($request->user())->send(new ContactanosMailable);
 
-        return redirect('areas');
+        return redirect('areas')->with('info', alert('sfsf', 'qweq'));
     }
 
     /**
@@ -111,6 +117,7 @@ class AreaController extends Controller
         $area->descripcion = $request->descripcion;
 
         $area->save();
+        Alert::error(session('error'));
         return redirect('areas');
     }
 
@@ -122,7 +129,11 @@ class AreaController extends Controller
      */
     public function destroy($id)
     {
-        Area::destroy($id);
-        return redirect("areas");
+        Alert::question('Question Title', 'Question Message');
+
+        //Area::destroy($id);
+
+
+        return redirect("areas")->with('info', 'Que paso');;
     }
 }

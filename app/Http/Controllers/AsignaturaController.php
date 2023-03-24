@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Asignatura;
+use App\Models\Unidad;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -151,6 +152,12 @@ class AsignaturaController extends Controller
     public function unidades($id)
     {
         $asignatura = Asignatura::find($id);
-        return view('asignatura.unidades', ['asignatura' => $asignatura]);
+
+        $unidades = Unidad::query()
+        ->select(['id', 'nombre', 'objetivo', 'horas_t', 'horas_p', 'fecha_entrega'])
+        ->where('asignatura_id','=', $asignatura->id)
+        ->get();
+
+        return view('asignatura.unidades', ['asignatura' => $asignatura, 'unidades' => $unidades]);
     }
 }
