@@ -5,49 +5,25 @@
         <div class="card">
             <div class="card-header">
                 <a href="{{ route('areas.create') }}" class="btn btn-success">Crear area</a>
-                <svg version="1.1" width="24" height="24" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
-                    xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512"
-                    style="enable-background:new 0 0 512 512;" xml:space="preserve">
-                    <circle style="fill:#273B7A;" cx="256" cy="256" r="256" />
-                    <path style="fill:#121149;"
-                        d="M300.03,508.214c114.312-19.818,202.624-115.44,211.268-233.21L374.31,138.016l-132.963,33.513
-	l-71.542-24.709l-31.985,7.578l133.648,133.648l-88.821,102.786L300.03,508.214z" />
-                    <path style="fill:#FFFFFF;"
-                        d="M200.259,398.222h111.483c12.474,0,22.995-9.288,24.543-21.666l28.32-226.576H147.394l28.322,226.576
-	C177.262,388.934,187.785,398.222,200.259,398.222z" />
-                    <path style="fill:#D0D1D3;"
-                        d="M255.426,149.98v248.242h56.315c12.474,0,22.995-9.288,24.543-21.666l28.322-226.576H255.426z" />
-                    <path style="fill:#E09112;"
-                        d="M361.589,161.185H150.411c-8.33,0-15.084-6.754-15.084-15.084l0,0c0-8.33,6.754-15.084,15.084-15.084
-	h211.178c8.33,0,15.084,6.754,15.084,15.084l0,0C376.673,154.431,369.919,161.185,361.589,161.185z" />
-                    <path style="fill:#FF5419;"
-                        d="M361.589,131.017H255.426v30.168h106.163c8.332,0,15.084-6.754,15.084-15.084
-	C376.673,137.769,369.919,131.017,361.589,131.017z" />
-                    <path style="fill:#D35933;"
-                        d="M256,364.606c-2.857,0-5.172-2.315-5.172-5.172V188.768c0-2.857,2.315-5.172,5.172-5.172
-	s5.172,2.315,5.172,5.172v170.667C261.172,362.291,258.857,364.606,256,364.606z" />
-                    <path style="fill:#B54324;"
-                        d="M256,183.596c-0.197,0-0.383,0.036-0.574,0.059v180.895c0.191,0.021,0.378,0.059,0.574,0.059
-	c2.857,0,5.172-2.315,5.172-5.172V188.769C261.172,185.911,258.857,183.596,256,183.596z" />
-                    <path style="fill:#D35933;"
-                        d="M206,364.606c-2.644,0-4.899-2.019-5.142-4.705l-15.515-170.667c-0.259-2.844,1.836-5.36,4.682-5.618
-	c2.789-0.283,5.358,1.836,5.618,4.682l15.515,170.667c0.259,2.844-1.836,5.36-4.682,5.618
-	C206.317,364.599,206.158,364.606,206,364.606z" />
-                    <path style="fill:#B54324;"
-                        d="M306,364.606c-0.159,0-0.315-0.007-0.474-0.022c-2.844-0.257-4.941-2.772-4.682-5.618l15.515-170.667
-	c0.257-2.846,2.77-4.944,5.618-4.682c2.844,0.257,4.941,2.772,4.682,5.618l-15.515,170.667
-	C310.899,362.587,308.643,364.606,306,364.606z" />
-                </svg>
+
+                <form action="{{ url('multipledestroy') }}" method="POST">
+                    @csrf
+                    <button type="submit" class="btn btn-success right">Delete users</button>
+                </form>
+
             </div>
             <div class="card-body">
                 <table class="table table-bordered table-hover">
                     <thead>
                         <th>id</th>
-                        <th>Nombre</th>
-                        <th>Descripción</th>
-                        <th>Fotografia</th>
-                        <th>Edit</th>
-                        <th>Delete</th>
+                        <th class="text-center">Nombre</th>
+                        <th class="text-center">Descripción</th>
+                        <th class="text-center">Fotografia</th>
+                        <th class="text-center">Edit</th>
+                        <th class="text-center">Delete</th>
+                        <th class="text-center">
+                            <input type="checkbox" id="checkAll"> Select All
+                        </th>
                     </thead>
                     <tbody>
                         @foreach ($areas as $area)
@@ -58,43 +34,23 @@
                                 <td>
                                     <img src="{{ asset($area->fotografia) }}" alt="" width="64px" srcset="">
                                 </td>
-                                <td style="width: 20px">
+
+                                <td class="text-center" style="width: 20px">
                                     <a href="{{ route('areas.edit', $area->id) }}" class="btn btn-primary">
                                         Edit
                                     </a>
                                 </td>
-                                <td style="width: 20px">
+                                <td class="text-center" style="width: 20px">
                                     <form action="{{ route('areas.destroy', $area->id) }}" method="post">
                                         @csrf
                                         @method('DELETE')
                                         <button type="submit" class="btn btn-danger">
-                                            <svg version="1.1" width="16" height="16" id="Layer_1"
-                                                xmlns="http://www.w3.org/2000/svg"
-                                                xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-                                                viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;"
-                                                xml:space="preserve">
-                                                <g>
-                                                    <g>
-                                                        <g>
-                                                            <path
-                                                                d="M458.667,42.669h-128V32.004c0-17.647-14.354-32.004-32-32.004h-85.333c-17.646,0-32,14.357-32,32.004v10.665h-128
-				c-5.889,0-10.667,4.776-10.667,10.667v42.67c0,5.89,4.778,10.667,10.667,10.667h11.729l40.421,383.995H74.667
-				c-5.891,0-10.667,4.777-10.667,10.667S68.775,512,74.667,512h42.667h277.331c0.179,0,0.356-0.017,0.533-0.025
-				c0.164,0.007,0.33,0.025,0.496,0.025h42.665c5.891,0,10.667-4.776,10.667-10.667s-4.775-10.667-10.667-10.667h-31.844
-				l40.423-383.995h11.729c5.89,0,10.667-4.776,10.667-10.667v-42.67C469.333,47.444,464.557,42.669,458.667,42.669z
-				 M202.667,32.004c0-5.885,4.785-10.671,10.667-10.671h85.333c5.882,0,10.667,4.786,10.667,10.671v10.665H202.667V32.004z
-				 M385.062,490.667H126.935L86.514,106.672h338.971L385.062,490.667z M448,85.339h-10.667H74.667H64V64.002h384V85.339z" />
-                                                            
-                                                            
-                                                            
-                                                            
-                                                            
-                                                        </g>
-                                                    </g>
-                                                </g>
-                                            </svg>
+                                            Del
                                         </button>
                                     </form>
+                                </td>
+                                <td class="text-center" style="width: 20px">
+                                    <input name='id[]' type="checkbox" id="checkItem" value="{{ $area->id }}">
                                 </td>
                             </tr>
                         @endforeach
@@ -107,4 +63,12 @@
             </div>
         </div>
     </div>
+@endsection
+
+@section('js')
+    <script language="javascript">
+        $("#checkAll").click(function() {
+            $('input:checkbox').not(this).prop('checked', this.checked);
+        });
+    </script>
 @endsection

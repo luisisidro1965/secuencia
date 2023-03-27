@@ -10,16 +10,22 @@ use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Mail\Mailables\Address;
 
+use App\Models\Area;
+
 class ContactanosMailable extends Mailable
 {
     use Queueable, SerializesModels;
 
+    public $mailData;
+    //protected Area $area;
+
     /**
      * Create a new message instance.
      */
-    public function __construct()
+    public function __construct(protected Area $area)
     {
-        //
+        //$this->mailData = $mailData;
+        $this->area = $area;
     }
 
     /**
@@ -28,8 +34,8 @@ class ContactanosMailable extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            from: new Address('example@example.com', 'Test Sender Direccion de quien envia'),
-            subject: 'Contactanos Mailable',
+            from: new Address('coordimador@tutoriasutcam.net', 'Coordinador de tutorias'),
+            subject: 'Gracias por contactarse...',
         );
     }
 
@@ -40,6 +46,7 @@ class ContactanosMailable extends Mailable
     {
         return new Content(
             view: 'emails.recibe',
+
         );
     }
 

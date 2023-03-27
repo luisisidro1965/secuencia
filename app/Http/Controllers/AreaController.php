@@ -4,11 +4,12 @@ namespace App\Http\Controllers;
 
 use App\Mail\ContactanosMailable;
 use Illuminate\Http\Request;
+
 use App\Models\Area;
-use Illuminate\Support\Facades\DB;
+use App\Models\User;
+
 use Illuminate\Support\Facades\Storage;
 use RealRashid\SweetAlert\Facades\Alert;
-use Illuminate\Mail\Mailable;
 use Illuminate\Support\Facades\Mail;
 
 class AreaController extends Controller
@@ -20,6 +21,10 @@ class AreaController extends Controller
      */
     public function index()
     {
+        //$user = User::all();
+
+        //return $user->toArray();
+
         $areas = Area::paginate(6);
         return view('areas.index', compact('areas'));
     }
@@ -71,7 +76,8 @@ class AreaController extends Controller
 
         $areas->save();
         //print_r($request->user());
-        Mail::to($request->user())->send(new ContactanosMailable);
+
+        Mail::to($request->user())->send(new ContactanosMailable($areas));
 
         return redirect('areas')->with('info', alert('sfsf', 'qweq'));
     }
@@ -129,11 +135,24 @@ class AreaController extends Controller
      */
     public function destroy($id)
     {
-        Alert::question('Question Title', 'Question Message');
+        //Alert::question('Question Title', 'Question Message');
 
-        //Area::destroy($id);
+        Area::destroy($id);
 
+        return redirect("areas")->with('info', 'Que paso $id');;
+    }
 
-        return redirect("areas")->with('info', 'Que paso');;
+    public function multipledestroy(Request $request)
+    {
+        return $request;
+
+        $id = $request->id;
+
+        foreach ($id as $user) {
+            //User::where('id', $user)->delete();
+            return User::where('id', $user);
+        }
+        //return back();
+
     }
 }
