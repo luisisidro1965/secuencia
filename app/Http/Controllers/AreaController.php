@@ -142,8 +142,10 @@ class AreaController extends Controller
         return redirect("areas")->with('info', 'Que paso $id');;
     }
 
-    public function multipledestroy(Request $request)
+    public function multipledestroy()
     {
+        echo "Hola";
+        /*
         return $request;
 
         $id = $request->id;
@@ -153,6 +155,6 @@ class AreaController extends Controller
             return User::where('id', $user);
         }
         //return back();
-
+*/
     }
 }

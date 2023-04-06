@@ -17,6 +17,10 @@ return new class extends Migration
             $table->id();
             $table->string('nombre', 150);
             $table->string('descripcion');
+            $table->date('fecha');
+            $table->string('observaciones');
+            $table->enum('status', ['Pendiente', 'En curso', 'Finalizada', 'Cancelada']);
+            $table->foreignId('fsa03_id')->constrained('fsa03');
             $table->timestamps();
         });
     }

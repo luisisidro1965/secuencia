@@ -10,17 +10,11 @@
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
-    <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
-
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
-    <!-- Styles -->
-
     @yield('css')
-    <!-- @yield('js') -->
     @vite(['resources/css/app.scss', 'resources/js/app.js'])
 </head>
 
@@ -101,42 +95,51 @@
                                 @default
                             @endswitch
 
-                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
-                                data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                {{ Auth::user()->id }}{{ Auth::user()->name }}
-                            </a>
+                            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                                <div class="navbar-nav w-100 justify-content-evenly">
+                                    <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
+                                        data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                        {{ Auth::user()->id . '        ' }}{{ Auth::user()->name }}
+                                    </a>
 
+                                    <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
 
-                            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="{{ route('logout') }}"
-                                    onclick="event.preventDefault();
-                                         document.getElementById('logout-form').submit();">
-                                    {{ __('Perfil') }}
-                                </a>
-                                <a class="dropdown-item" href="{{ route('logout') }}"
-                                    onclick="event.preventDefault();
-                                             document.getElementById('logout-form').submit();">
-                                    {{ __('Logout') }}
-                                </a>
+                                        <a class="dropdown-item" href="{{ route('register') }}">
+                                            {{ __('Perfil') }}
+                                        </a>
+                                        
+                                        <a class="dropdown-item" href="{{ route('logout') }}"
+                                            onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                            {{ __('Logout') }}
+                                        </a>
+        
+                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                            @csrf
+                                        </form>
 
-                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                    @csrf
-                                </form>
+                                    </div>
+
+                                </div>
+
                             </div>
+                            
                         @endguest
                     </ul>
                 </div>
             </div>
-
 
         </nav>
 
         <main class="py-4">
             @yield('content')
         </main>
+
     </div>
+
     @yield('js')
     @include('sweetalert::alert')
+
 </body>
 
 </html>

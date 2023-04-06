@@ -18,6 +18,7 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    @vite(['resources/css/app.scss', 'resources/js/app.js'])
     <style>
         body {
             background-color: rgba(86, 61, 124, .05);
@@ -89,27 +90,16 @@
 </head>
 
 <body>
-    <nav class="nav-top p-3">
+    <nav class="nav-top p-33">
         <div class="container-fluid d-flex align-items-center no-padding">
-            <h2 class="logo">LOGO</h2>
-            <ul class="d-flex list-unstyled list list-top">
-                <li><a href="">About</a></li>
-                <li><a href="">Clients</a></li>
-                <li><a href="">Projects</a></li>
-                <li><a href="">Contact</a></li>
-            </ul>
-            <ul class="d-flex list-unstyled list ml-auto">
-                <li><a href="">Facebook</a></li>
-                <li><a href="">Twitter</a></li>
-            </ul>
-            <button class="toggle-menu ml-2 d-md-none" aria-label="Responsive Navigation Menu">
-                <!--icon from https://iconmonstr.com-->
-                <img src="{{ asset('images/mapache.jpg') }}" class="img-fluid" alt="">
+            <button class="toggle-menu" aria-label="Responsive Navigation Menu">
+                <img src="{{ asset('images/mapache.jpg') }}" class="img-fluid" alt="tht">
             </button>
+            <x-mnututor/>
+            
         </div>
     </nav>
-    <x-mnututor/>
-    <x-tarjeta/>
+ 
 </body>
 
 </html>

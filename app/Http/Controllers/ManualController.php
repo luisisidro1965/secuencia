@@ -13,7 +13,7 @@ class ManualController extends Controller
     public function index()
     {
         $manuales = Manual::all();
-        //print_r($manuales);
+
         return view('docente.manual.index', compact('manuales'));
     }
 
@@ -22,7 +22,7 @@ class ManualController extends Controller
      */
     public function create()
     {
-        //
+        return view('docente.manual.create');
     }
 
     /**
@@ -30,7 +30,14 @@ class ManualController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $manual = new Manual();
+        $manual->nombre = $request->nombre;
+        $manual->autor = $request->autor;
+        $manual->numprac = $request->numprac;
+
+        $manual->save();
+
+        return redirect()->route("manuales.index");
     }
 
     /**

@@ -24,6 +24,8 @@ return new class extends Migration
             $table->string('foto')->nullable();
             $table->string('progedu');
             $table->enum('sexo', ['masculino', 'femenino']);
+            $table->enum('visible', ['On', 'Off']);
+            $table->enum('status', ['On', 'Off']);
             $table->rememberToken();
             $table->timestamps();
         });

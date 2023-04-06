@@ -2,35 +2,18 @@
 
 @section('content')
     <div class="container">
-        <!doctype html>
-        <html lang="en">
-
-        <head>
-            <meta charset="utf-8">
-            <meta name="viewport" content="width=device-width, initial-scale=1">
-            <meta name="description" content="">
-            <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
-            <meta name="generator" content="Hugo 0.72.0">
-            <title>Blog Template · Bootstrap</title>
-        </head>
-
-        <body>
-
+    
             <div class="container">
                 <div class="nav-scroller py-1 mb-2">
                     <nav class="nav d-flex justify-content-between">
-                        <a class="p-2 link-secondary" href="#">World</a>
-                        <a class="p-2 link-secondary" href="#">U.S.</a>
-                        <a class="p-2 link-secondary" href="#">Technology</a>
-                        <a class="p-2 link-secondary" href="#">Design</a>
-                        <a class="p-2 link-secondary" href="#">Culture</a>
-                        <a class="p-2 link-secondary" href="#">Business</a>
-                        <a class="p-2 link-secondary" href="#">Politics</a>
-                        <a class="p-2 link-secondary" href="#">Opinion</a>
-                        <a class="p-2 link-secondary" href="#">Science</a>
-                        <a class="p-2 link-secondary" href="#">Health</a>
-                        <a class="p-2 link-secondary" href="#">Style</a>
-                        <a class="p-2 link-secondary" href="#">Travel</a>
+                        <a class="p-2" href="#">Marco conceptual</a>
+                        <a class="p-2" href="#">Alcance</a>
+                        <a class="p-2" href="#">Objetivo general</a>
+                        <a class="p-2" href="#">Participaciones</a>
+                        <a class="p-2" href="#">F-SA-01</a>
+                        <a class="p-2" href="#">Planeación</a>
+                        <a class="p-2" href="#">Politics</a>
+                        <a class="p-2" href="#">Travel</a>
                     </nav>
                 </div>
 
@@ -59,14 +42,7 @@
                     </div>
                 </div>
             </div>
-            
-            <footer class="blog-footer">
-                <p>Blog template built for <a href="https://getbootstrap.com/">Bootstrap</a> by <a
-                        href="https://twitter.com/mdo">@mdo</a>.</p>
-                <p>
-                    <a href="#">Back to top</a>
-                </p>
-            </footer>
+    
         </body>
 
         </html>

@@ -6,11 +6,11 @@
             <div class="card-header">
                 <a href="{{ route('areas.create') }}" class="btn btn-success">Crear area</a>
 
-                <form action="{{ url('multipledestroy') }}" method="POST">
+                <form action="{{ url('multipledestroy') }}" method="post">
                     @csrf
-                    <button type="submit" class="btn btn-success right">Delete users</button>
+                    {{-- <button type="submit" class="btn btn-success right">Delete users</button> --}}
+                    <input type="submit" name="enviar" value="enviar" />
                 </form>
-
             </div>
             <div class="card-body">
                 <table class="table table-bordered table-hover">
@@ -44,6 +44,7 @@
                                     <form action="{{ route('areas.destroy', $area->id) }}" method="post">
                                         @csrf
                                         @method('DELETE')
+                                        
                                         <button type="submit" class="btn btn-danger">
                                             Del
                                         </button>

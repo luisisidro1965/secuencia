@@ -3,6 +3,11 @@
 @section('content')
     <div class="container">
         <h1>Manuales de práctica</h1>
+        <form action="{{ route('manuales.create') }}" method="get">
+            @csrf
+            <button type="submit" class="btn btn-primary">Crear Manual</button>
+        </form>
+
         <table class="table table-bordered table-striped table-hover">
             <thead>
                 <th>Id</th>
@@ -25,10 +30,5 @@
                 @endforeach
             </tbody>
         </table>
-
-
-
-
-
     </div>
 @endsection

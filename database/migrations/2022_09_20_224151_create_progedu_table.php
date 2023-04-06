@@ -17,6 +17,8 @@ return new class extends Migration
             $table->id();
             $table->string('nombre');
             $table->string('area')->nullable();
+            $table->string('nivel'); //TSU +o Ingneriría +o Licenciatura
+            $table->foreignId('familia_id')->constrained('familias');
             $table->timestamps();
         });
     }
