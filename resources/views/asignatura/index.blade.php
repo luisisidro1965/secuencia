@@ -45,11 +45,11 @@
                                                 <small>No inscrito</small>
                                         @endswitch
                                     </td>
-                                    <td>{{ $asignatura->ht }}</td>
                                     <td>{{ $asignatura->hp }}</td>
                                     <td>{{ $asignatura->htotales }}</td>
                                     <td>{{ $asignatura->htsemana }}</td>
                                     <td>{{ $asignatura->objetivo }}</td>
+                                    <td>{{ $asignatura->ht }}</td>
                                     <td><a href="{{ url('asignatura/unidad', $asignatura->id) }}" class="btn btn-primary">Unidades</a></td>
                                     <td>
                                         <a href="http://" class="btn btn-warning">Update</a>

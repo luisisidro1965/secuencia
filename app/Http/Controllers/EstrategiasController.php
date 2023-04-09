@@ -2,19 +2,16 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Manual;
 use Illuminate\Http\Request;
 
-class ManualController extends Controller
+class EstrategiasController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $manuales = Manual::all();
-
-        return view('docente.manual.index', compact('manuales'));
+        //
     }
 
     /**
@@ -22,7 +19,7 @@ class ManualController extends Controller
      */
     public function create()
     {
-        return view('docente.manual.create');
+        //
     }
 
     /**
@@ -30,14 +27,7 @@ class ManualController extends Controller
      */
     public function store(Request $request)
     {
-        $manual = new Manual();
-        $manual->nombre = $request->nombre;
-        $manual->autor = $request->autor;
-        $manual->numprac = $request->numprac;
-
-        $manual->save();
-
-        return redirect()->route("manuales.index");
+        //
     }
 
     /**
@@ -45,8 +35,7 @@ class ManualController extends Controller
      */
     public function show(string $id)
     {
-        $manual = Manual::find($id);
-        return view('docente.manual.show', compact('manual'));
+        //
     }
 
     /**

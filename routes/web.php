@@ -5,24 +5,22 @@ namespace App\Http\Controllers\Auth;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
 
+use App\Models\Asignatura;
+
 use App\Http\Controllers\AreaController;
 use App\Http\Controllers\AsignaturaController;
 use App\Http\Controllers\LugarController;
 use App\Http\Controllers\Auth\RegisterController;
-
 use App\Http\Controllers\EstrategiasController;
 use App\Http\Controllers\FamiliaController;
 use App\Http\Controllers\ImpresionController;
 use App\Http\Controllers\MailController;
 use App\Http\Controllers\ManualController;
-use App\Http\Controllers\MateriaController;
 use App\Http\Controllers\QuestionController;
 use App\Http\Controllers\SubirarchivoController;
 use App\Http\Controllers\ParalelogramoController;
 use App\Http\Controllers\ProductoController;
 use App\Http\Controllers\HomeController;
-
-use App\Models\Asignatura;
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
@@ -33,7 +31,7 @@ Route::get('/', function () {
     //session(['prueba' => 'awi40']);  
     //dd(session('prueba'));
     return view('welcome');
-})->middleware('auth.basic');
+});     //->middleware('auth.basic');
 
 Route::get('usuariosok', function () {
     $response = Http::get('https://http.cat/100.jpg');
@@ -55,6 +53,8 @@ Route::view('perros', 'apiperros');
 Route::view('pit', 'evalua.pit');
 Route::view('/para', 'coordi.ejercicio.paralelogramo');
 Route::view('correo', 'emails.envia');
+Route::view('guest', 'guest.guest');
+Route::view('general', 'general.general');
 
 Auth::routes();
 
@@ -98,12 +98,3 @@ Route::post('/lado', [ParalelogramoController::class, 'lado']);
 Route::resource('producto', ProductoController::class);
 
 Route::resource('manuales', ManualController::class);
-
-Route::get('/consul', function () {
-
-    $users = DB::table('asignaturas')
-    ->groupBy('progedu_id')
-    ->get();
-
-    return $users;
-});
