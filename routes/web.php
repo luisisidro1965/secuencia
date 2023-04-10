@@ -34,12 +34,12 @@ Route::get('/', function () {
 });     //->middleware('auth.basic');
 
 Route::get('usuariosok', function () {
-    $response = Http::get('https://http.cat/100.jpg');
+    $response = Http::get('https://http.cat/201');
+
     //return $response->body(
     //return $response->successful();
     //return $response->json();
     $lista = $response->json();
-    //return $lista;
     return view('apis.usuarios', ['lista' => $lista]);
 });
 
