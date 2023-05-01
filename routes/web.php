@@ -21,6 +21,7 @@ use App\Http\Controllers\SubirarchivoController;
 use App\Http\Controllers\ParalelogramoController;
 use App\Http\Controllers\ProductoController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\EvaluaController;
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
@@ -44,19 +45,20 @@ Route::get('usuariosok', function () {
 });
 
 Route::view('/asistente', 'asistente.index');
+Route::view('/coordi', 'coordi.coordi');
 Route::view('/tutorado', 'tutorado.index');
 Route::view('/tutor', 'tutor.index');
 Route::view('/portada', 'portada');
 Route::view('login3', 'login');
 Route::view('mapas', 'mapas.carmen');
 Route::view('perros', 'apiperros');
-Route::view('pit', 'evalua.pit');
 Route::view('/para', 'coordi.ejercicio.paralelogramo');
 Route::view('correo', 'emails.envia');
 Route::view('guest', 'guest.guest');
 Route::view('general', 'general.general');
 
-Auth::routes();
+//Ojo con el parametro verify true
+Auth::routes(['verify' => true]);  
 
 //Route::get('email/verify', [Auth\VerificationController::class, 'show'])->name('verification.notice');
 
@@ -98,3 +100,5 @@ Route::post('/lado', [ParalelogramoController::class, 'lado']);
 Route::resource('producto', ProductoController::class);
 
 Route::resource('manuales', ManualController::class);
+
+Route::resource('evalua', EvaluaController::class);

@@ -3,7 +3,7 @@
 @section('content')
     <div class="container">
         <i class="fa fa-camera-retro fa-lg"></i>
-        <h1>Lista de lugares</h1>
+        <h1>Lista de grupos</h1>
         <div>
             {{ session('status') }}
         </div>

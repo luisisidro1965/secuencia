@@ -41,6 +41,8 @@ class LugarController extends Controller
         DB::insert('insert into lugares(descripcion, responsable, capacidad, edificio) values (?,?,?,?)', [
             $request->descripcion, $request->responsable, $request->capacidad, $request->edificio
         ]);
+        session()->flash('status', 'Operación insert correcta');
+
         //return $request->except(['_token']);
         return redirect(route('lugar.index'));
     }

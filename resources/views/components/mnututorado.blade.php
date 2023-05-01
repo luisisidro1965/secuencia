@@ -1,4 +1,5 @@
 <div>
+    
     <div class="container-fluid">
         <nav class="navbar navbar-expand-lg navbar-light">
             <!-- <a class="nav-item nav-link" href="#"><img src="images/mapache.jpg" width="100"></a> -->
@@ -15,7 +16,7 @@
                         <a class="nav-item nav-link" href="#">Actividades</a>
                         <a class="nav-item nav-link" href="#">Sesiones</a>
                         <a class="nav-item nav-link" href="#">Participaciones</a>
-                        <a class="nav-item nav-link" href="#">Evalua</a>
+                        <a class="nav-item nav-link" href="{{  route('evalua.index')  }}">Evalua</a>
                     </div>
                 </div>
             </div>

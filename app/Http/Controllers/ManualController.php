@@ -54,7 +54,8 @@ class ManualController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $manual = Manual::find($id);
+        return view('docente.manual.edit', compact ('manual'));
     }
 
     /**
@@ -62,7 +63,16 @@ class ManualController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        //$manual = new Manual();
+        $manual = Manual::find($id);
+
+        $manual->nombre = $request->nombre;
+        $manual->autor = $request->autor;
+        $manual->numprac = $request->numprac;
+
+        $manual->save();
+
+        return redirect()->route("manuales.index");
     }
 
     /**
@@ -70,6 +80,14 @@ class ManualController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        // return "Recurso a borrar $id";
+
+        // Manual::destroy($id);
+
+        $manual = Manual::find($id);
+        $manual->delete();
+
+
+        return redirect()->route("manuales.index");
     }
 }
